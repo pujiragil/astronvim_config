@@ -7,17 +7,11 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        "jsonls", "tsserver", "cssls", "html"
+        "jsonls",
+        "tsserver",
+        "cssls",
+        "html",
       })
-      -- add HTML language server configuration
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      opts.settings = {
-        html = {
-          configurationSection = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" },
-        },
-      }
-      opts.filetypes = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" }
-      opts.capabilities = capabilities
     end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
@@ -27,8 +21,8 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        -- "prettier",
-        -- "stylua",
+        "prettier",
+        "stylua",
       })
     end,
   },

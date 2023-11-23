@@ -11,10 +11,5 @@ return {
       "json",
       "tsx",
     })
-
-    opts.autotag = {
-      enable = true,
-      enable_close_on_slash = false,
-    }
   end,
 }

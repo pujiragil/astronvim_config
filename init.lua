@@ -27,6 +27,18 @@ return {
   },
 
   lsp = {
+    config = {
+      tsserver = {
+        init_options = {
+          hostInfo = "neovim",
+          preferences = {
+            includeCompletionsForModuleExports = true,
+            includeCompletionsForImportStatements = true,
+            importModuleSpecifierPreference = "non-relative",
+          },
+        },
+      },
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save

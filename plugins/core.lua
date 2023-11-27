@@ -35,6 +35,10 @@ return {
       return opts
     end,
   },
+  {
+    "rcarriga/nvim-notify",
+    opts = function(_, opts) opts.background_colour = "#000000" end,
+  },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --

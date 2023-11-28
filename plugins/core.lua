@@ -23,6 +23,23 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
+      local utils = require "astronvim.utils"
+
+      opts.source_selector = {
+        winbar = false,
+      }
+
+      opts.window.mappings = {
+        H = "prev_source",
+        L = "next_source",
+        F = utils.is_available "telescope.nvim" and "find_in_dir" or nil,
+        O = "system_open",
+        Y = "copy_selector",
+        h = "parent_or_close",
+        l = "child_or_open",
+        o = "open",
+      }
+
       opts.filesystem.filtered_items = {
         visible = false, -- when true, they will just be displayed differently than normal items
         hide_dotfiles = true,

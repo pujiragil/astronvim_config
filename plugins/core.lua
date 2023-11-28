@@ -30,7 +30,7 @@ return {
       }
 
       opts.window.mappings = {
-        H = "prev_source",
+        J = "prev_source",
         L = "next_source",
         F = utils.is_available "telescope.nvim" and "find_in_dir" or nil,
         O = "system_open",

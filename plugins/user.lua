@@ -53,7 +53,10 @@ return {
     priority = 1000,
     opts = {
       -- custom colors
-      on_colors = function(colors) colors.bg_sidebar = "#1a1b26" end,
+      on_colors = function(colors)
+        colors.bg_sidebar = "#1a1b26"
+        colors.bg_float = "#1a1b26"
+      end,
 
       -- custom highlights
       on_highlights = function(hl, c)

@@ -11,7 +11,6 @@ return {
         "tsserver",
         "cssls",
         "html",
-        "tailwindcss",
         "lua_ls",
       })
     end,

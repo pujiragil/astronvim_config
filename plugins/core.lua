@@ -5,19 +5,23 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        "                                                     ",
         "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
         "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
         "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
         "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
         "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
         "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-        "                                                     ",
       }
       opts.section.header.opts.hl = "DashboardHeader"
       opts.section.buttons.opts.hl = "DashboardButtons"
+
+      local stats = require("lazy").stats()
+      local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
+      opts.section.footer.val = { "Capek bang ngeload " .. stats.count .. " plugins  in " .. ms .. "ms" }
+      pcall(vim.cmd.AlphaRedraw)
       return opts
     end,
+    config = function(_, opts) require("alpha").setup(opts.config) end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
